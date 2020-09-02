@@ -1,9 +1,12 @@
-resource "aws_ses_domain_identity" "example" {
-  domain = "example.com"
+provider "aws" {
+  region = "us-east-1"
+}
+resource "aws_ses_domain_identity" "ngiscards" {
+  domain = "ngiscards.com"
 }
 
 resource "aws_ses_domain_dkim" "example" {
-  domain = aws_ses_domain_identity.example.domain
+  domain = aws_ses_domain_identity.ngiscards.domain
 }
 
 resource "aws_route53_record" "example_amazonses_dkim_record" {
